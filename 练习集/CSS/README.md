@@ -5,15 +5,15 @@ Cascading Style Sheet 层叠样式表
 ### [CSS 选择器](./CSS选择器.md)
 
 ### 盒模型
-
-w3c标准盒模型
-
+W3C盒模型
 IE 怪异盒模型
 
-盒模型由 margin border padding content组成
+box-sizing content-box
+box-sizing border-box
 
-标准盒模型宽高指content的
-怪异盒模型指content + padding + border 的
+margin border padding content 盒模型
+标准 width height content
+怪异 border padding content
 
 ### CSS 如何设置这两种盒模型？
 
@@ -28,75 +28,83 @@ box-sizing: border-box
 三点
 1.布局规则
 5点
-内部的box 会在垂直方向上一个接一个地放置
-属于同一个bfc的两个相邻的box的margin会发生重叠
-bfc是独立元素 内部元素不影响外部 外部同理 才怪 内部文字超长 该出来还是会出来
-bfc区域 不会与float box重叠
-计算bfc高度 浮动元素也参与计算
+1.一个BFC内 box在垂直方向上一个接一个排
+2.box margin会发生重叠
+3.高度计算时会算内部的浮动元素高度
+4.BFC区域不会与float区域重叠
 
 2.如何触发  5点
-overflow: auto/hidden
-display: flow-root inline-block
-float: 不为none
-html
-position absolute fixed
+  1.html 根元素
+  2.display inline-block  flow-root
+  3.overflow auto
+  4.position absolute fixed
+  5.float 除了none
 
 3.作用 两点即可
-清浮动
-清除文字环绕
-
+  清除文字环绕
+  清除浮动
+  左右两栏布局
 
 ### BFC、IFC、GFC 和 FFC
 
 块级
 内联
 网格
-自适应 flex
+弹性 flex
 
 ### 非布局样式
+字体相关的 color font-size font-weight
+background
+opacity
 
-字体 颜色 大小 行高
-背景 边框
-滚动 换行
 
 ### 行高的构成
 
 line-box组成
-line-box由一行里的 inline-box组成
-inline-box最高的那个 或者字体最大的那个 决定行高
+line-box由inline-box组成
+line-box高度由一行内 最高的或者字体最大的那个inline-box决定
 
 
 ### float
 
-浮动
 脱离文档流
 不脱离文本流
-位置尽量靠上 靠左或右
+向上 向左或右对齐
+
+形成块 BFC
+
+- 不影响其他块级元素位置
+- 影响其他块级元素文本
 
 
 
 ### 清除浮动
 
 1.BFC
-父元素形成BFC 同时设置宽度 不能设置height 
-2.伪元素
-::content::after {
-  display: block;
-  content: ' ';
-  visibility: hidden;
+  1.overflow: auto
+  2.float 除了none
+  3.postion absolute fixed
+  4.display inline-box flow-root
+  5.html 根元素
+2.伪类
+test::after {
+  content: '';
   height: 0;
   clear: both;
+  visibility: hidden;
+  display: block;
+}
+test {
+  zoom: 1
 }
 
-
 ### inline-block 的间隙
-空格导致
-font-size: 0 或去掉空格
+空格
+font-size 0
 
 ### 你对 line-height 是如何理解的？
-上一行的基线到下一行的基线
-如果没有行高 则由line-height决定高度
-line-height=height可以让文字垂直居中
+上一行基线到下一行基线的距离
+height = line-height可以让一行垂直居中
 
 
 ### line-height 三种赋值方式有何区别？（带单位、纯数字、百分比）
@@ -121,15 +129,15 @@ scroll 滚动条不隐藏
 hidden 超出不显示 
 
 ### 文字折行 回答属性即可 值和区别说不会 
-word-wrap break-word normal
 word-break
+word-wrap
 white-space
 
+
 ### 装饰属性及其他
-text-decoration
-font-style itatic
+text-decoration 下划线
+cursor
 font-weight
-cursor: pointer
 
 ### CSS Hack
 一部分不合法的语法 在某些浏览器上生效
@@ -141,15 +149,16 @@ ua 识别以后加特定类名
 
 ### 单行文本溢出显示省略号
 overflow: hidden;
-text-overflow: ellipsis;
-white-space: no-wrap;
+text-overflow: ellipsis
+white-space no-wrap
+
 
 ### 多行文本溢出显示省略号
 overflow: hidden;
 text-overflow: ellipsis;
 display: -webkit-box;
 -webkit-line-clamp: 3;
--webkit-box-orient: vertical;
+-webkit-box-orient: vertical
 
 ### display: none; 与 visibility: hidden; opacity: 0的区别
 display: none 渲染树上不存在 不占位 会触发回流 性能消耗大 点不到
@@ -222,22 +231,22 @@ inherit 集成父元素的值
 
 
 ### CSS3 新特性？
-transform 元素变换
-animation 动画
-flex 弹性盒
-媒体查询
-box-shadow
-border-radius
-text-overflow: ellipsis
+transform
+opacity
+flex
+animation
+@media
+
 
 ### 如何水平居中一个元素？
-margin: 0 auto
-text-align center
-
+块级
+margin 0 atuo
+行内 text-align center
 
 ### 用纯 CSS 创建一个三角形的原理是什么？
 w3c盒模型中 边框的形状是个梯形
 transparant
+
 
 
 ### li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？(也称幽灵字符)
@@ -251,10 +260,19 @@ font-size:0;letter-spaceing:-4px;
 
 
 ### 什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的 IE？
+适配多端
+媒体查询 
+js计算宽度 使用不同样式
 
 
 ### 谈谈浮动和清除浮动
-
+contet:after {
+  content: '';
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  display: block
+}
 
 ### box-sizing 常用的属性有哪些？分别有什么作用？
 
@@ -262,22 +280,24 @@ font-size:0;letter-spaceing:-4px;
 
 
 ### rgba() 和 opacity 的透明效果有什么不同？
-
+opacity可以继承
+rgba作用在背景颜色属性上
 
 ### css 属性 content 有什么作用？
+伪元素才有用 插入额外的内容
 
 
 ### 元素竖向的百分比设定是相对于容器的高度吗？
-
+宽度
 
 ### a 标签上四个伪类的使用顺序是怎么样的？
-
+link visited  hover active
 
 ### 伪元素和伪类的区别和作用？
 
 
 ### ::before 和 :after 中双冒号和单冒号有什么区别？
-
+兼容低版本浏览器
 
 ### 设置元素浮动后，该元素的 display 值会如何变化？
 
