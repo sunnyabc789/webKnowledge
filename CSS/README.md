@@ -57,12 +57,13 @@ BFC 作用：
 3. position 的值为 absolute 或 fixed
 4. overflow 的值不为 visible（默认值。内容不会被修剪，会呈现在元素框之外）
 5. display 的值为 inline-block、table-cell、table-caption
+6. display: flow-root;
 
 BFC 布局规则：
 
 1. 内部的 Box 会在垂直方向，一个接一个地放置。
 2. 属于同一个 BFC 的两个相邻的 Box 的 margin 会发生重叠
-3. BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此, 文字环绕效果，设置 float
+3. BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此, 文字环绕效果，设置 float;  才怪 内部文字超长 该溢出还是会溢出
 4. BFC 的区域不会与 float box 重叠。
 5. 计算 BFC 的高度，浮动元素也参与计算
 
@@ -183,10 +184,14 @@ BFC 布局规则：
 ### 文字折行
 
 - overflow-wrap(word-wrap)通用换行控制
+（1）normal：不换行，超出元素容器边界也不换行
+
+（2）break-word：在超过容器边界换行
+
   - 是否保留单词
-- word-break 针对多字节文本文字
+- word-break 针对多字节文本文字  normal|break-all|keep-all;
   - 中文句子也是单词
-- white-space 空白处是否换行
+- white-space 空白处是否换行  nowrap break-word normal break-all
 
 ### 装饰属性及其他
 
@@ -222,12 +227,12 @@ white-space: no-wrap;
 ```css
 overflow: hidden;
 text-overflow: ellipsis;
-display: -webkit-box;
+display: -webkit-box;  自适应布局
 -webkit-line-clamp: 3;
 -webkit-box-orient: vertical;
 ```
 
-### display: none; 与 visibility: hidden; 的区别
+### display: none; 与 visibility: hidden; opacity: 0的区别
 
 结构：
 
@@ -242,6 +247,7 @@ display: -webkit-box;
 
 - display: none 和 opacity: 0
   - 非继承属性，子孙节点消失由于元素从渲染树消失造成，通过修改子孙节点属性无法显示。
+  但是父元素没了 子元素也不会显示
 - visibility: hidden
   - 继承属性，子孙节点消失由于继承了 hidden，通过设置 visibility: visible;可以让子孙节点显式。
 
@@ -356,6 +362,8 @@ display: -webkit-box;
   - 它们要计算成千上万次并且可能会对你页面的性能产生影响。
 
 ## [DOM 层级顺序与 z-index](https://segmentfault.com/a/1190000014382426)
+css会生成层级上下文 并尽可能合并层 减少层数量 
+层级关系不仅和z-index有关系 在不同的层叠情况下 与 position margin等都有关系
 
 ### link 与 @import 的区别
 
