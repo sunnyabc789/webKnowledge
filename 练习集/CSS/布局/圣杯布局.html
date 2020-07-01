@@ -4,44 +4,30 @@
     <meta charset="utf-8" />
     <title>实现三栏水平布局之圣杯布局</title>
     <style type="text/css">
-      /*基本样式*/
-      .left,
-      .right,
-      .main {
-        min-height: 300px;
-      }
-      .left {
-        width: 200px;
-        background-color: thistle;
-      }
-      .main {
-        background-color: #999;
-      }
-      .right {
-        width: 300px;
-        background-color: violet;
-      }
-      /* 圣杯布局关键代码 */
-      .left,
-      .main,
-      .right {
-        float: left;
-        position: relative;
-      }
-      .main {
-        width: 100%;
-      }
       .container {
-        padding-left: 200px;
-        padding-right: 300px;
+        padding-left: 300px;
+        padding-right: 200px;
       }
       .left {
+        width: 300px;
+        float: left;
         margin-left: -100%;
-        left: -200px;
+        background: pink;
+        position: relative;
+        left: -300px;
       }
       .right {
-        margin-left: -300px;
-        right: -300px;
+        width: 200px;
+        float: left;
+        margin-left: -200px;
+        background: pink;
+        position: relative;
+        right: -200px;
+      }
+      .main {
+        background: #ccc;
+        float: left;
+        width: 100%;
       }
     </style>
   </head>

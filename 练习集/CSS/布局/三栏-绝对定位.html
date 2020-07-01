@@ -10,35 +10,40 @@
         margin: 0;
         padding: 0;
       }
-      aside {
-        position: absolute;
-        width: 300px;
-        min-height: 100px;
+      .warpper {
+        position: relative;
       }
-      aside.left {
+      .left {
+        position: absolute;
         left: 0;
-        background-color: red;
+        width: 200px;
+        background: green;
       }
-      aside.right {
-        right: 0;
-        background-color: blue;
-      }
-      main.center {
+      .right  {
         position: absolute;
-        left: 300px;
-        right: 300px;
-        background-color: orange;
+        right: 0;
+        width: 200px;
+        background: green;
+      }
+      .main {
+        background: orange;
+        left: 200px;
+        right: 200px;
+        position: absolute;
       }
     </style>
   </head>
   <body>
-    <aside class="left"></aside>
-    <aside class="right"></aside>
-    <main class="center">
-      <h1>绝对定位解决方案</h1>
-      <p>左右区域分别postion：absolute，固定到左右两边</p>
-      <p>中间区域postion：absolute；left：300px; right: 300px</p>
-      <p>给总的宽度加一个min-width，不然缩小窗口会有毛病</p>
-    </main>
+    <div class="wrapper">
+      <div class="left">
+        left
+      </div>
+      <div class="right">
+          right
+        </div>
+      <div class="main">
+        main
+      </div>
+    </div>
   </body>
 </html>

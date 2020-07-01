@@ -58,8 +58,10 @@ BFC 作用：
 4. overflow 的值不为 visible（默认值。内容不会被修剪，会呈现在元素框之外）
 5. display 的值为 inline-block、table-cell、table-caption
 6. display: flow-root;
+fdoph
 
 BFC 布局规则：
+fm内高垂
 
 1. 内部的 Box 会在垂直方向，一个接一个地放置。
 2. 属于同一个 BFC 的两个相邻的 Box 的 margin 会发生重叠
@@ -92,6 +94,7 @@ BFC 布局规则：
 - inline-box 中最高的那个，或字体最大的拿个决定行高
 
 ### float
+浮脱上 定宽高 影不影 高塌陷
 
 - 元素"浮动"
 - 脱离文档流
@@ -130,7 +133,7 @@ BFC 布局规则：
 ```css
 .container::after {
   content: " ";
-  clear: both;
+  clear: both;  //不允许有浮动现象 专门用来清浮动 left right
   display: block;
   visibility: hidden;
   height: 0;

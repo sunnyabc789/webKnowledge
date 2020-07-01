@@ -5,6 +5,24 @@
 [Flex - 阮一峰 （语法篇）](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 [Flex - 阮一峰 （实战篇）](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 
+flex-direction 决定主轴方向 默认row水平 row-reverse column column-reserve
+flex-wrap    默认no-wrap 不换行 wrap换行 第一行在上 wrap-reverse 第一行在下
+flex-flow 为上面两个的简写
+justify-content 定义了子项在主轴上的对齐方式  :flex-start 左对齐 flex-end 右对齐 center居中 两端距离相等 space-between两端对齐 各子项距离相等 
+
+space-between 适用于两个盒子的一左一右布局 也可以3个盒子等间距布局
+加上align-items:flex-end 盒子下方对齐 配合pt mt可以撑开盒子
+
+space-around 每个子项两端距离相等 所以项目间的间隔会比项目和边框间大一倍
+
+align-items 子项在交叉轴上的对齐方式
+flex-start 上 flex-end 下 center 交叉轴中点对齐 baseline和第一行文字基线对齐
+
+stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+
+align-content     
+定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。 和align-items类似
+
 ## grid 网格布局
 
 [grid 网格布局](https://www.imooc.com/article/28513)

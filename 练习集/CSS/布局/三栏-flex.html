@@ -10,36 +10,27 @@
         margin: 0;
         padding: 0;
       }
-      .left,
-      .right,
-      .center {
-        min-height: 100px;
-      }
       .wrapper {
         display: flex;
       }
-      .left {
-        background-color: red;
-        width: 300px;
-      }
-      .center {
-        background-color: orange;
+      aside, main {
         flex: 1;
       }
-      .right {
-        background-color: blue;
-        width: 300px;
+      main {
+        width: 500px;
       }
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <aside class="left"></aside>
-      <main class="center">
-        <h1>flex布局解决方案</h1>
-        <p>包裹这个3个块的父元素display: flex; 中间的元素flex: 1;</p>
+      <aside>left</aside>
+      <main>
+        main
       </main>
-      <aside class="right"></aside>
+      <aside>
+        right
+      </aside>
     </div>
+  </div>
   </body>
 </html>

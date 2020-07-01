@@ -6,31 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>双飞翼布局</title>
     <style>
-      .main {
-        width: 100%;
-        float: left;
-        background: #ccc;
-      }
       .inner-main {
         margin-left: 200px;
         margin-right: 300px;
       }
+      .main {
+        float: left;
+        width: 100%;
+        background: #ccc;
+      }
       .left {
         float: left;
+        background: pink;
         width: 200px;
         margin-left: -100%;
-        background: pink;
       }
-      .right {
-        background: pink;
+      .right  {
         float: left;
+        background: pink;
         width: 300px;
         margin-left: -300px;
       }
     </style>
   </head>
   <body>
-    <div class="main"><div class="inner-main">main</div></div>
+    <div class="main"><div class="inner-main">inner-main</div></div>
     <div class="left">left</div>
     <div class="right">right</div>
   </body>
